@@ -5,7 +5,18 @@
  - implement a websocket client for the server that handles connection, login, ping, message parsing, automatic reconnect, and channel forwarding to consumer app of client
  - for parsing, implement a serde enum that handles all of the possible message types
 
-## msg types
+## client login message
+
+ - after initial connection, client must send a login message with the shape:
+
+```json
+{
+	"type": "login",
+	"username": "anything"
+}
+```
+
+## receiver msg types
 
  - login
 ```json
