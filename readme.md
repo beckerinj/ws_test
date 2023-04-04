@@ -2,7 +2,7 @@
 
 ## challenge
 
- - implement a websocket client for the server that handles connection, login, ping, message parsing, automatic reconnect, and channel forwarding to consumer app of client
+ - implement a websocket client for the server that handles connection, login, ping, message parsing, automatic reconnect, and channel forwarding for messages
  - for parsing, implement a serde enum that handles all of the possible message types
 
 ## client login message
