@@ -31,6 +31,14 @@
 		{
 			"type": "cargo",
 			"command": "run",
+			"label": "rust: cargo run",
+			"options": {
+				"cwd": "${workspaceFolder}/server"
+			}
+		},
+		{
+			"type": "cargo",
+			"command": "run",
 			"label": "run client",
 			"options": {
 				"cwd": "${workspaceFolder}/client"
