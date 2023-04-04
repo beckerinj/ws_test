@@ -4,6 +4,7 @@
 
  - implement a websocket client for the server that handles connection, login, ping, message parsing, automatic reconnect, and channel forwarding for messages
  - for parsing, implement a serde enum that handles all of the possible message types
+ - insert all non-login and non-close messages into Mongo (will provide uri for connection)
 
 ## client login message
 
