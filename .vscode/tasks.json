@@ -1,0 +1,40 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cargo",
+			"command": "build",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"label": "rust: cargo build"
+		},
+		{
+			"type": "cargo",
+			"command": "fmt",
+			"label": "rust: cargo fmt"
+		},
+		{
+			"type": "cargo",
+			"command": "check",
+			"label": "rust: cargo check"
+		},
+		{
+			"type": "cargo",
+			"command": "run",
+			"label": "run server",
+			"options": {
+				"cwd": "${workspaceFolder}/server"
+			}
+		},
+		{
+			"type": "cargo",
+			"command": "run",
+			"label": "run client",
+			"options": {
+				"cwd": "${workspaceFolder}/client"
+			}
+		}
+	]
+}
