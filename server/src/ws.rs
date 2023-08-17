@@ -10,7 +10,7 @@ use axum::{
     Router,
 };
 use futures_util::{SinkExt, StreamExt};
-use serde_derive::Deserialize;
+use serde::Deserialize;
 use serde_json::json;
 use tokio_util::sync::CancellationToken;
 
@@ -141,13 +141,13 @@ async fn ws_login(mut socket: WebSocket) -> Option<WebSocket> {
             let login_info = login_info.unwrap();
             if login_info.msg_type.as_str() == "login" {
                 let _ = socket.send(Message::Text(json!({ "type": "login", "info": format!("username: {}", login_info.username) }).to_string())).await;
-                return Some(socket);
+                Some(socket)
             } else {
                 let _ = socket
                         .send(Message::Text(json!({ "type": "error", "message": format!("invalid login message | wrong type, type should be 'login'") }).to_string()))
                         .await;
                 let _ = socket.close().await;
-                return None;
+                None
             }
         }
         other => {
@@ -155,7 +155,7 @@ async fn ws_login(mut socket: WebSocket) -> Option<WebSocket> {
                 .send(Message::Text(json!({ "type": "error", "message": format!("invalid login message | {other:?}") }).to_string()))
                 .await;
             let _ = socket.close().await;
-            return None;
+            None
         }
     }
 }
